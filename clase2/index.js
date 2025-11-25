@@ -191,3 +191,109 @@ console.log(persona1.darNombre());
 console.log(persona1.darIngresos()); */
 
 
+// Asincronismo y Sincronismo
+
+// Ejecución síncrona
+/* function funcA() {
+    console.log("Proceso #1");
+    funcB();
+    console.log("Proceso #2");
+}
+
+function funcB() {
+    console.log("Proceso #3");
+    funcC();
+    console.log("Proceso #4");
+}
+
+function funcC() {
+    console.log("Proceso #5");
+}
+
+funcA(); */
+
+// Promises (Promesas)
+// Poseen 3 estados;
+// 1) Pending (Pendiente)
+// 2) Fullfilled (Completada)
+// 3) Rejected (Rechazada)
+
+const invitacion = (lugar) => {
+    return new Promise((resolve, reject) => {
+        //console.log("Pensando...");
+        if (lugar == "cine") {
+            resolve("Estoy. Vamos a full!")
+        } else {
+            reject("No puedo amigo/a, se me complico esta noche...")
+        }
+    })
+}
+
+//console.log(invitacion("mc donalds")); // Promesa rechazada
+//console.log(invitacion("cine"));
+
+// Como capturar el valor que nos devuelve la promesa
+// Then => Para capturar la respuesta de una promesa fullfilled
+// Catch => Para capturar la respuesta de una promesa rejected
+
+/* invitacion("cenar")
+.then(respuesta => {
+    console.log("Promesa Completada!");
+    console.log(respuesta);
+})
+.catch(motivo => {
+    console.log("Promesa Rechazada!");
+    console.log("Error: " + motivo);
+}) */
+
+// Finally => Se ejecuta a lo último de nuestra promesa independiente si cumple o no
+/* invitacion("cine")
+.then(respuesta => {
+    console.log("Promesa Completada!");
+    console.log(respuesta);
+})
+.catch(motivo => {
+    console.log("Promesa Rechazada!");
+    console.log("Error: " + motivo);
+})
+.finally(() => {
+    console.log("Fin de la ejecución!");
+}) */
+
+// Otra forma de ejecutar promesas es mediante funciones asíncronas async / await
+// Utlizar los Try / Catch
+
+const dividir = (dividendo, divisor) => {
+    return new Promise ((resolve, reject) => {
+        if (divisor == 0) {
+            reject("No se puede dividir por 0!");
+        } else {            
+            resolve(dividendo/divisor);
+        }
+    })
+}
+
+// Opción #1 función tradicional
+/* async function funcionAsincrona() {
+    try {
+        let resultado = await dividir(200/50);
+        console.log(resultado);
+        
+        console.log("El resultado es: " + resultado);
+    } catch (error) {
+        console.log("Error: " + error);
+    }
+} */
+
+const funcionAsincrona = async () => {
+    try {
+        let resultado = await dividir(200, 0);
+        console.log("Resultado: " + resultado);
+    } catch (error) {
+        console.log("Error: " + error);
+    }
+}
+
+funcionAsincrona();
+
+
