@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "nombre": "Gaston",
+    "apellido": "Garcia",
+    "edad": 24,
+    "curso": "Curso Backend I"
+  },
+  {
+    "id": 2,
+    "nombre": "Cintia",
+    "apellido": "Hardy",
+    "edad": 23,
+    "curso": "Curso Backend II"
+  },
+  {
+    "id": 3,
+    "nombre": "Florencia",
+    "apellido": "Ramirez",
+    "edad": 22,
+    "curso": "Curso Backend III"
+  },
+  {
+    "id": 4,
+    "nombre": "Leandro",
+    "apellido": "Cruz",
+    "edad": 26,
+    "curso": "Curso Backend I"
+  }
+]
