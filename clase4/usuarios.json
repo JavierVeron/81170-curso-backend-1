@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "nombre": "Gaston",
+    "apellido": "Garcia",
+    "edad": 24,
+    "curso": "Curso Backend I",
+    "genero": "M"
+  },
+  {
+    "id": 2,
+    "nombre": "Cintia",
+    "apellido": "Hardy",
+    "edad": 23,
+    "curso": "Curso Backend II",
+    "genero": "F"
+  },
+  {
+    "id": 3,
+    "nombre": "Florencia",
+    "apellido": "Ramirez",
+    "edad": 22,
+    "curso": "Curso Backend III",
+    "genero": "F"
+  },
+  {
+    "id": 4,
+    "nombre": "Leandro",
+    "apellido": "Cruz",
+    "edad": 22,
+    "curso": "Curso Backend I",
+    "genero": "M"
+  }
+]
