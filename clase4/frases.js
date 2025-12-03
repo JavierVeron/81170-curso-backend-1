@@ -2,36 +2,50 @@ import express from "express"
 
 const app = express();
 const port = 8080;
-let frases = "";
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.listen(port, () => {
+    console.log("Servidor Activo: " + port);
+})
+
+const texto = {frase:""};
 
 app.get("/api/frase", (request, response) => {
-    response.send(frases);
+    response.send(texto);
 })
 
 app.get("/api/palabras/:pos", (request, response) => {
-    const pos = request.params.pos;
-    const resultado = frases.indexOf(pos, 0) + 1;    
+    const {pos} = request.params;
+    const palabras = texto.frase.split(" ");
 
-    if (resultado > 0) {
-        response.send({buscada:resultado});
-    } else {
-        response.send({estado:"error", mensaje:"No se encontró la frase buscada!"});
-    }
+    response.send({buscada:palabras[pos-1]});
 })
 
 app.post("/api/palabras", (request, response) => {
     const {palabra} = request.body;
-    console.log(request.body);
-    
-    const posicion = frases.length + 1;
-    frases += " " + palabra;
-    const resultado = {agregada:agregada, pos:posicion}
+    const palabras = texto.frase.split(" ");
+    texto.frase = (texto.frase + " " + palabra).trim();
 
-    response.send(resultado);
+    response.send({agregada:palabra, pos:(palabras.length)});
 })
 
+app.put("/api/palabras/:pos", (request, response) => {
+    const {pos} = request.params;
+    const {palabra} = request.body;
+    const palabras = texto.frase.split(" ");
+    const palabraAnterior = palabras[pos-1];
+    palabras[pos-1] = palabra;
+    texto.frase = palabras.join(" ");
 
+    response.send({actualizada:palabra, anterior:palabraAnterior});
+})
 
-app.listen(port, () => {
-    console.log("Servidor Activo: " + port);
+app.delete("/api/palabras/:pos", (request, response) => {
+    const {pos} = request.params;
+    const palabras = texto.frase.split(" ");
+    const palabraAnterior = palabras[pos-1];
+    const palabrasActualizada = palabras.filter(item => item != palabraAnterior)
+    texto.frase = palabrasActualizada.join(" ").trim();
+
+    response.send({texto});
 })
