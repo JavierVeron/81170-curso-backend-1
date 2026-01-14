@@ -14,7 +14,7 @@ app.listen(port, () => {
     console.log("Servidor conectado: " + port);
 });
 
-mongoose.connect("mongodb+srv://javierveron:Javier123!@codercluster.d33hyf3.mongodb.net/?appName=CoderCluster")
+mongoose.connect("mongodb+srv://javierveron:@codercluster.d33hyf3.mongodb.net/?appName=CoderCluster")
 .catch(() => {
     console.log("Error! No se pudo conectar a la BD de Mongo Atlas!");
 })
