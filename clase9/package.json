@@ -1,0 +1,20 @@
+{
+  "name": "clase9",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-handlebars": "^8.0.2",
+    "handlebars": "^4.7.8",
+    "mongoose": "^9.1.5",
+    "mongoose-paginate-v2": "^1.9.1",
+    "nodemon": "^3.1.11"
+  }
+}
